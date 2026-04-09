@@ -1,5 +1,5 @@
 ---
-title: "The Alvarez Lab"
+title: "The Kai Lab"
 output: html_document
 ---
 
@@ -7,16 +7,17 @@ output: html_document
 knitr::opts_chunk$set(echo = TRUE)
 ```
 
-## [ABOUT ME & RESEARCH](./about_me/about_me.html) | [CV](./about_me/resume_alvarez.pdf) | [BIOL 3100 - Final Project](./final_project/final_project.html)##
+## [ABOUT ME](./about_me/about_me.html) | [CV](./about_me/resume_alvarez.pdf) | [BIOL 3100 - Final Project](./final_project/final_project.html)##
 
-# Erick J. Alvarez: Bioinformatician and Chill Guy #
-Jersey born and now based in Orem, UT; loving science and living life while breaking some hearts along the way.
+# K. Kai Pauole: Microbiology major #
+Born and raised in Utah, I enjoy learning about the unseen world of microbes, and spending
+time with my family.
 
 ```{r, out.width="60%", echo = FALSE}
-knitr::include_graphics("./media/headshot.jpg")
+knitr::include_graphics('C:/Users/kaipa/Downloads/Kaipauole.github.io/IMG_8607.jpg')
 
 ```
 
-Welcome to my website! Feel free to explore my previous/current research, resume, and my final project for BIOL 3100 (Data Analysis for Biologists). 
+Welcome to my website. 
 
-Any questions? Email alvareer99@gmail.com for further inquiries.
+Any questions? Email kaipauole@gmail.com
