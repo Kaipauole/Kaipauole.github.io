@@ -7,7 +7,7 @@ output: html_document
 knitr::opts_chunk$set(echo = TRUE)
 ```
 
-## [ABOUT ME](./about_me/about_me.html) | [CV](C:/Users/kaipa/Downloads/Kaipauole.github.io/about_me/Kristopher_Kai_Pauole_Resume.pdf) | [BIOL 3100 - Final Project](./final_project/final_project.html)##
+## [ABOUT ME](./about_me/about_me.html) | [CV](about_me/Kristopher_Kai_Pauole_Resume.pdf) | [BIOL 3100 - Final Project](./final_project/final_project.html)##
 
 # K. Kai Pauole: Microbiology major #
 Born and raised in Utah, I enjoy learning about the unseen world of microbes, and spending

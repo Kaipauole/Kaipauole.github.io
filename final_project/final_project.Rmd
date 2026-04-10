@@ -1,6 +1,6 @@
 ---
-title: "An Exploratory Analysis of Worldwide COVID-19 Cases and Deaths"
-date: "December 5, 2024"
+title: "Antibiotic Resistant Bacteria per state"
+date: "March 15, 2026"
 output: 
     html_document:
         theme: paper
@@ -22,7 +22,7 @@ knitr::opts_chunk$set(echo = TRUE, cache = TRUE, warning = FALSE, message = FALS
 [Return to Homepage](../index.html)
 
 # **Introduction**
-In the following report, I will be investigating and examining the untold story behind seemingly transparent records pertaining to worldwide COVID cases and death tolls. While the data has already been cleaned and contains fairly simple information, this project aims to investigate the disparities between countries, their COVID death tolls, COVID recovery rates, and the correlation between those statistics and their financial standing and population size. In simpler terms, does a country having a high death toll inherently imply that they handled the outbreak worse than another? What does the total number of cases in relation to the number of recovered patients and deaths tell us about that nation's pandemic response? Did active participants in COVID tests actually have any noticable affect on total number of cases and in turn, deaths? These are just some of the questions I hope to explore in this writing. 
+Intro: Antibiotics have been in use since WWII to treat infections that were once thought to be incurable. They have revolutionized medicine and saved countless lives, and will continue to save countless more. However, there is a major drawback to the use of antibiotics. Over the years of usage of antibiotics, doctors have over prescribed, and patients have not finished taking doses as instructed, leading to resistance. There are hundreds, maybe even more, species of bacteria that have developed resistance to our everyday use of antibiotics, and some that have become resistant to our stronger last resort antibiotics. In this research, we will look at the data for a common resistant bacterial strain commonly found in healthcare settings, as well as looking at resistance found in other species. We will also talk about how we can reduce the amount of resistance occurring, as well as potential other options.    
 
 # **Background**
 This project was inspired in part by my previous research on non-substance use disorder treatment services offered in Baltimore, MD, which primarily consisted of COVID-related services. It was also inspired by general happen stance: I found a very nice data set on Kaggle and felt it could be an interesting take on a seemingly dull data set. As mentioned, this data set was found [here](https://www.kaggle.com/datasets/themrityunjaypathak/covid-cases-and-deaths-worldwide/data), as updated 2 years ago (2022) by Mrityunjay Pathak.
