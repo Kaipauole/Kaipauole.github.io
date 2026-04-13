@@ -22,7 +22,7 @@ knitr::opts_chunk$set(echo = TRUE, cache = TRUE, warning = FALSE, message = FALS
 [Return to Homepage](../index.html)
 
 # **Introduction**
-Intro: Antibiotics have been in use since WWII to treat infections that were once thought to be incurable. They have revolutionized medicine and saved countless lives, and will continue to save countless more. However, there is a major drawback to the use of antibiotics. Over the years of usage of antibiotics, doctors have over prescribed, and patients have not finished taking doses as instructed, leading to resistance. There are hundreds, maybe even more, species of bacteria that have developed resistance to our everyday use of antibiotics, and some that have become resistant to our stronger last resort antibiotics. In this research, we will look at the data for a common resistant bacterial strain commonly found in healthcare settings, as well as looking at resistance found in other species. We will also talk about how we can reduce the amount of resistance occurring, as well as potential other options.    
+Antibiotics have been in use since WWII to treat infections that were once thought to be incurable. They have revolutionized medicine and saved countless lives, and will continue to save countless more. However, there is a major drawback to the use of antibiotics. Over the years of usage of antibiotics, doctors have over prescribed, and patients have not finished taking doses as instructed, leading to resistance. There are hundreds, maybe even more, species of bacteria that have developed resistance to our everyday use of antibiotics, and some that have become resistant to our stronger last resort antibiotics. In this research, we will look at the data for a common resistant bacterial strain commonly found in healthcare settings, as well as looking at resistance found in other species. We will also talk about how we can reduce the amount of resistance occurring, as well as potential other options.    
 
 # **Background**
 Antibiotic-resistant bacteria are not specific to just one state; as we will see, there is resistance in every single state. Not only do we have bacteria that are resistant to our oldest forms of antibiotics, like penicillin, which was first discovered by Alexander Fleming when he left bacteria out in his lab while on vacation. We are also seeing resistance in some of our more potent antibiotics, like Vancomycin, Carbapenem, Daptomycin, and others. A lot of our treatments for bacteria now need a combination of different antibiotics just to rid patients of infection. 
@@ -45,7 +45,7 @@ library(RColorBrewer)
 MRSA = read.csv("C:/Users/kaipa/Downloads/Kaipauole.github.io/final_project/Standardized-Infection-Ratios-by-State-Map/Standardized-Infection-Ratios-by-State-Map.csv")
 
 ```
-As already described, this data set was retrieved from Kaggle and had already been **mostly** cleaned for analysis. However, there are some changes I wanted to make to the data structure, missing values/empty spaces, and superfluous characters found throughout the data set. The following code and outputs demonstrate the changes I've made to allow for smoother data analysis: 
+I found data already created and cleaned up in the format I desired. As stated earlier for simplicity sake, I will just be exploring one type of resistant bacteria strain (MRSA). The data will be used to make a Choropleth map where the different colors will represent the concentration of bacterial resistance for this particular strain. I will go into more detain on this later. Here I will show a portion of the data table found (Link?) 
 
 ```{r}
 # shows the original data structure 
@@ -56,39 +56,64 @@ head(MRSA)
 
 ```
 
-As noted before, the data was collected accross 231 countries (231 rows) along with 6 particular statistics associated with each country. The columns are described as follows: 
+As noted before, the data was collected across all 50 states and some of the territories (56 rows) with 13 columns. I will go over the ones important for us here. I will not be including the territories in this data: 
 
-- **serial_number**
-  - a unique but arbitrary ID given to each row of data to serve as a key column 
+- **state**
+ - All 50 states and territories.
   
-- **country** 
-  - the country in question 
   
-- **total_cases**
-  - total number of cases of COVID-19 reported at that point in the country 
+- **HAI**
+ -Stands for hospital acquired infection.
+ 
   
-- **total_deaths**
-  - total number of deaths from COVID-19 reported at that point in the country 
+- **Event.year**
+ -When the data was acquired (2022).
+ 
   
-- **total_recovered** 
-  - total number of partients who recovered from COVID-19 at that point in the country 
-  
-- **active_cases**
-  - currently on-going cases reported at the moment the survey was conducted 
-  
-- **total_test_taken**
-  - total number of COVID-19 tests administered and reported at that point in the country 
-  
-- **population**
-  - total number of people living in the country at that point of the survey
-  
+- **Observed.infections**
+ -Number of infections found in that state or territory (MRSA).
+ 
 # **Exploratory Analysis**
-## Death Rate vs. Testing Rate 
-First, we will be investigating two metrics that aren't given to us in the actual data set: 
+## Infections per state 
+Here we see the data on a Choropleth map, using the different colors we can see which states have the highest rate of MRSA infections in a hospital setting: 
+```{r}
+# raw map used
+par(mar = c(0, 0, 0, 0))
+map('state', fill = TRUE, col = 'grey', border = 'black', lwd = 0.5)
+
+
+# map with data
+MRSA$State = tolower(MRSA$State)
+MRSA$Observed.Infections = as.numeric(MRSA$Observed.Infections)
+map_df = map_data("state")
+
+MRSA_map = MRSA %>%
+  mutate(bin = cut(Observed.Infections,
+      breaks = c(-Inf, 125, 250, 375, 500, 625, 750, Inf),
+      labels = c("0-125", "126-250", "251-375", "376-500", "501-625", "626-750", "750+"),
+      include.lowest = TRUE))
+map_df = left_join(map_df, MRSA_map,
+                    by = c("region" = "State"))
+ggplot(map_df, aes(long, lat, group = group, fill = bin)) +
+  geom_polygon(color = "black") +
+  scale_fill_brewer(
+    palette = "Reds",
+    name = "Observed Infections",
+    direction = 1)+
+  theme_void()
 ```
 
+```
+As you see from the map, most of the central states have lower MRSA observed infections. The east cost, California, Texas, and Florida have a higher observed infetions probably because of the higher populations in those areas. 
+
+# **Disscussion**
+This data just shows one strain of bacteria that is common in hospitals. As precription rates have gone up as well as misuse of antibiotics there has been increase in these super bugs. There has been promising research done on other tatics to reduce the use of antibiotic resistance. One such is the use of bacteriophages to target and kill resistant bacteria. There has even been cases where phage therapy has resulted in antibiotic resistance loss due to phage gene integration in the bacterial genome. 
 
 # **Conclusion** 
-All my thoughts and interpretations have been strewn across this entire document so there isn't much for me to share here other than the point that there is much to be learned from what might seem like even the dullest of data. Data does not need to be super complex for it to be analyzed. Creative thought process of how to look at the data and what types of predictions you might be able to make with said data is just as important to. COVID-19 offers great insight into how the world can handle large medical crisis and if they did handle it well. That can be said for many other forms of data so be on the look out and think creatively! You'll never know what you may find. I also didn't sleep all night in the process of writing this entire script so I'm calling it good now, thank you for reading! 
+As the rate of misuse and overperscription of antibiotics rises, the rate in antibiotic resistance will also climb. Because the develpment of new antibiotics is expensive and resistance is easy to develop there has been limited research in developing new antibiotics. However, promising research in other methods like phage therapy has shown promsing results and hopefuly will be used with antibiotic someday. In the mean time all we can do is use prescribed anitbiotics as directed, and finish the entire course effectivly killing all the bacteria and preventing futher resitance. 
+
+# **Citations**
+  United States | A.R. & Patient Safety Portal. (n.d.). Retrieved April 12, 2026, from https://cdc-earwig.datawheel.us/profile/geography/united-states?hai-select-sir=haiMRSA&phenotype-select-ar-by-hai=arPhenotype21&phenotype-select-ar-by-state=arPhenotype21&saar-age-select=age3&tabsection-182=1
+
 
 [Return to Homepage](../index.html)
