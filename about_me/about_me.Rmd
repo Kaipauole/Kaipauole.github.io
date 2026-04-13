@@ -19,7 +19,7 @@ knitr::opts_chunk$set(echo = TRUE)
 [Return to Homepage](../index.html)
 
 # **About Me (Kai)**
-I am a microbiology major, and after graduation I plan on attending medical school specializing in infectious disease or pathology.Me and why wife just had a baby in October 2025 and she is wonderful and loves anything that crinkles. Some of my hobbies include walks with my family, selling baseball and football cards, and anything outside. I also enjoy gardening. A random fact about me is that I speak Finnish.  
+I am a microbiology major, and after graduation I plan on attending medical school specializing in infectious disease or pathology.My wife and I just had a baby in October 2025 and she is wonderful and loves anything that crinkles. Some of my hobbies include walks with my family, selling baseball and football cards, and anything outside. I also enjoy gardening. A random fact about me is that I speak Finnish.  
 
 
 

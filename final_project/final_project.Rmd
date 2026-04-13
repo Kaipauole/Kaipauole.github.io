@@ -22,7 +22,7 @@ knitr::opts_chunk$set(echo = TRUE, cache = TRUE, warning = FALSE, message = FALS
 [Return to Homepage](../index.html)
 
 # **Introduction**
-Antibiotics have been in use since WWII to treat infections that were once thought to be incurable. They have revolutionized medicine and saved countless lives, and will continue to save countless more. However, there is a major drawback to the use of antibiotics. Over the years of usage of antibiotics, doctors have over prescribed, and patients have not finished taking doses as instructed, leading to resistance. There are hundreds, maybe even more, species of bacteria that have developed resistance to our everyday use of antibiotics, and some that have become resistant to our stronger last resort antibiotics. In this research, we will look at the data for a common resistant bacterial strain commonly found in healthcare settings, as well as looking at resistance found in other species. We will also talk about how we can reduce the amount of resistance occurring, as well as potential other options.    
+Antibiotics have been in use since WWII to treat infections that were once thought to be incurable. They have revolutionized medicine and saved countless lives, and will continue to save countless more. However, there is a major drawback to the use of antibiotics. Over the years of usage of antibiotics, doctors have over prescribed, and patients have not finished taking doses as instructed, leading to resistance. There are hundreds, maybe even more, species of bacteria that have developed resistance to our everyday use of antibiotics, and some that have become resistant to our stronger last resort antibiotics. In this research, we will look at the data for a common resistant bacterial strain commonly found in healthcare settings. We will also talk about how we can reduce the amount of resistance occurring, as well as potential other options.    
 
 # **Background**
 Antibiotic-resistant bacteria are not specific to just one state; as we will see, there is resistance in every single state. Not only do we have bacteria that are resistant to our oldest forms of antibiotics, like penicillin, which was first discovered by Alexander Fleming when he left bacteria out in his lab while on vacation. We are also seeing resistance in some of our more potent antibiotics, like Vancomycin, Carbapenem, Daptomycin, and others. A lot of our treatments for bacteria now need a combination of different antibiotics just to rid patients of infection. 
@@ -45,7 +45,7 @@ library(RColorBrewer)
 MRSA = read.csv("C:/Users/kaipa/Downloads/Kaipauole.github.io/final_project/Standardized-Infection-Ratios-by-State-Map/Standardized-Infection-Ratios-by-State-Map.csv")
 
 ```
-I found data already created and cleaned up in the format I desired. As stated earlier for simplicity sake, I will just be exploring one type of resistant bacteria strain (MRSA). The data will be used to make a Choropleth map where the different colors will represent the concentration of bacterial resistance for this particular strain. I will go into more detain on this later. Here I will show a portion of the data table found (Link?) 
+I found data already created and cleaned up in the format I desired. As stated earlier for simplicity sake, I will just be exploring one type of resistant bacteria strain (MRSA). The data will be used to make a Choropleth map where the different colors will represent the concentration of bacterial resistance for this particular strain. I will go into more detain on this later. Here I will show a portion of the data table found.
 
 ```{r}
 # shows the original data structure 
@@ -104,13 +104,13 @@ ggplot(map_df, aes(long, lat, group = group, fill = bin)) +
 ```
 
 ```
-As you see from the map, most of the central states have lower MRSA observed infections. The east cost, California, Texas, and Florida have a higher observed infetions probably because of the higher populations in those areas. 
+As you see from the map, most of the central states have lower MRSA observed infections. The east cost, California, Texas, and Florida have a higher observed infections probably because of the higher populations in those areas. 
 
 # **Disscussion**
 This data just shows one strain of bacteria that is common in hospitals. As precription rates have gone up as well as misuse of antibiotics there has been increase in these super bugs. There has been promising research done on other tatics to reduce the use of antibiotic resistance. One such is the use of bacteriophages to target and kill resistant bacteria. There has even been cases where phage therapy has resulted in antibiotic resistance loss due to phage gene integration in the bacterial genome. 
 
 # **Conclusion** 
-As the rate of misuse and overperscription of antibiotics rises, the rate in antibiotic resistance will also climb. Because the develpment of new antibiotics is expensive and resistance is easy to develop there has been limited research in developing new antibiotics. However, promising research in other methods like phage therapy has shown promsing results and hopefuly will be used with antibiotic someday. In the mean time all we can do is use prescribed anitbiotics as directed, and finish the entire course effectivly killing all the bacteria and preventing futher resitance. 
+As the rate of misuse and overperscription of antibiotics rises, the rate in antibiotic resistance will also climb. Because the development of new antibiotics is expensive and resistance is easy to develop there has been limited research in developing new antibiotics. However, promising research in other methods like phage therapy has shown promsing results and hopefully will be used with antibiotic someday. In the mean time all we can do is use prescribed anitbiotics as directed, and finish the entire course effectivly killing all the bacteria and preventing futher resistance. 
 
 # **Citations**
   United States | A.R. & Patient Safety Portal. (n.d.). Retrieved April 12, 2026, from https://cdc-earwig.datawheel.us/profile/geography/united-states?hai-select-sir=haiMRSA&phenotype-select-ar-by-hai=arPhenotype21&phenotype-select-ar-by-state=arPhenotype21&saar-age-select=age3&tabsection-182=1
